@@ -1,10 +1,11 @@
 <template>
   <header>
-      <h1>{{title}}</h1>
+      <h1>{{title}}
+           <i class="fa fa-etsy" aria-hidden="true"></i>
+      </h1>
+     
       <Button class="btn" text="Add Task" color = "green"/>
-      <Button class="btn" text="Update Task" color = "blue"/>
-      <Button class="btn" text="Delete Task" color = "orange"/>
-
+     
   </header>
 </template>
 

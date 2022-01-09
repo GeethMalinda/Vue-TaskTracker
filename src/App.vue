@@ -1,6 +1,6 @@
 <template>
 <div class="container">
-  <Header title="Earth"/>
+  <Header title="Task Tracker"/>
   <Tasks :tasks ="tasks"/>
 </div>
 
