@@ -35,13 +35,13 @@ export default {
         id:2,
         text:"333",
         day:"day",
-        reminder:true,
+        reminder:false,
       },
        {
         id:3,
         text:"dsds",
         day:"day",
-        reminder:true,
+        reminder:false,
       },
        {
         id:4,
