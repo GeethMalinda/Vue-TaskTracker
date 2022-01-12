@@ -1,7 +1,10 @@
+// Tasks.vue
+
+
 <template>
   <div  v-for="task in tasks" :key="task.id">
   <!-- <h3>{{task.text}}</h3> -->
-  <Task :task="task"/>
+  <Task @delete-task="$emit('delete-task',task.id)"  @toggle-reminder ="$emit('toggle-reminder',task.id)" :task="task"/>
   </div>
 </template>
 
@@ -15,7 +18,8 @@ export default {
     },
     components: {
       Task,
-    }
+    },
+    emit:["delete-task","toggle-reminder"]
 }
 </script>
 
