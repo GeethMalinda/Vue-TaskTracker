@@ -3,6 +3,7 @@
 <template>
   <div class="container">
     <Header title="Task Tracker" />
+    <AddTask @add-task= "addTask"/>
     <Tasks
       @toggle-reminder="toggleReminder"
       @delete-task="deleteTask"
@@ -15,6 +16,7 @@
 //import component
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
+import AddTask from "./components/AddTask";
 
 //register the component
 export default {
@@ -22,17 +24,23 @@ export default {
   components: {
     Header,
     Tasks,
+    AddTask
   },
   data() {
     return {
       tasks: [],
     };
   },
+  emit:['add-task'],
   methods: {
     deleteTask(id) {
       if (confirm("Are you sure you want to delete")) {
         this.tasks = this.tasks.filter((task) => task.id != id);
       }
+    },
+    addTask(task){
+      //spread across the current task and just add new one on to items
+      this.tasks = [...this.tasks,task]
     },
     //updating a task by changing the reminder from either true to false or false to true
     //
