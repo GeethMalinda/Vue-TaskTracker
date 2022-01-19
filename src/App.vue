@@ -2,8 +2,10 @@
 
 <template>
   <div class="container">
-    <Header title="Task Tracker" />
-    <AddTask @add-task= "addTask"/>
+    <Header :showAddTask="showAddTask" @toggle-add-task= "toggleAddTask" title="Task Tracker" />
+    <div v-show="showAddTask">
+      <AddTask @add-task="addTask" />
+    </div>
     <Tasks
       @toggle-reminder="toggleReminder"
       @delete-task="deleteTask"
@@ -24,23 +26,27 @@ export default {
   components: {
     Header,
     Tasks,
-    AddTask
+    AddTask,
   },
   data() {
     return {
       tasks: [],
+      showAddTask: false,
     };
   },
-  emit:['add-task'],
+  emit: ["add-task"],
   methods: {
+    toggleAddTask(){
+      this.showAddTask = !this.showAddTask;
+    },
     deleteTask(id) {
       if (confirm("Are you sure you want to delete")) {
         this.tasks = this.tasks.filter((task) => task.id != id);
       }
     },
-    addTask(task){
+    addTask(task) {
       //spread across the current task and just add new one on to items
-      this.tasks = [...this.tasks,task]
+      this.tasks = [...this.tasks, task];
     },
     //updating a task by changing the reminder from either true to false or false to true
     //
