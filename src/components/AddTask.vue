@@ -43,7 +43,8 @@ export default {
             }
             
             const newTask = {
-                id:Math.floor(Math.random() *100000),
+              //dont need anymore auto gen id json server do it manually
+                // id:Math.floor(Math.random() *100000),
                 text:this.text,
                 day:this.day,
                 reminder:this.reminder
